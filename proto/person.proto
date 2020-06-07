@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package persion;
+
+service Persion {
+  rpc SearchPersion(PersionRequest) returns (PersonResponse) {}
+}
+
+message PersionRequest {
+  int32 id = 1;
+}
+
+message PersonResponse {
+  int32 id = 1;
+  string name = 2;
+  enum Gender {
+    MAN = 0;
+    WOMAN = 1;
+  }
+  Gender gender = 3;
+}

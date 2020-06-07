@@ -8,6 +8,7 @@ services:
     image: grpc-sandbox/laravel
     volumes:
       - ./laravel:/var/www/:cached
+      - ./proto:/proto:cached
     ports:
       - 8000:8000
     command: php artisan serve --host 0.0.0.0
@@ -18,8 +19,8 @@ services:
       dockerfile: Dockerfile
     image: grpc-sandbox/rails
     volumes:
-    volumes:
       - ./rails:/rails:cached
+      - ./proto:/proto:cached
     ports:
       - 3000:3000
     command: bin/rails s -b 0.0.0.0
